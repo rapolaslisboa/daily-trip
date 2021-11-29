@@ -8,11 +8,10 @@ import {
   Typography,
 } from "@mui/material";
 import { useHistory } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
 import { RouteNames } from "../../App";
 import * as React from "react";
 
-const SignIn = () => {
+const ForgotPassword = () => {
   const history = useHistory();
 
   const handleSubmit = (event) => {
@@ -28,7 +27,7 @@ const SignIn = () => {
   return (
     <Container
       component="main"
-      maxWidth="xs"
+      maxWidth="480px"
       style={{
         display: "flex",
         height: "100%",
@@ -43,17 +42,18 @@ const SignIn = () => {
           alignItems: "center",
         }}
       >
-        <Box mb={2}>
-          <img style={{ maxWidth: 350, width: "100%" }} src={logo} alt="Logo" />
-        </Box>
         <Typography component="h1" variant="h5">
-          Realize seu login
+          Esqueci minha senha
+        </Typography>
+        <Typography mt={3} align="center" component="h1" variant="subtitle1">
+          Digite seu e-mail e enviaremos um link para resetar sua senha.
         </Typography>
         <Box
           component="form"
           onSubmit={handleSubmit}
           noValidate
-          sx={{ mt: 1, mb: 1 }}
+          minWidth="480px"
+          sx={{ mt: 2, mb: 1 }}
         >
           <TextField
             margin="normal"
@@ -65,16 +65,6 @@ const SignIn = () => {
             autoComplete="email"
             autoFocus
           />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Senha"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
           <Button
             type="submit"
             fullWidth
@@ -82,7 +72,7 @@ const SignIn = () => {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Logar
+            Enviar
           </Button>
           <Grid container flexDirection="column" alignItems="center">
             <Grid item mb={1}>
@@ -90,19 +80,9 @@ const SignIn = () => {
                 href="#"
                 variant="body1"
                 underline="none"
-                onClick={() => history.push(RouteNames.SignUp())}
+                onClick={() => history.push(RouteNames.SignIn())}
               >
-                Cadastre-se
-              </Link>
-            </Grid>
-            <Grid item xs>
-              <Link
-                href="#"
-                variant="body1"
-                underline="none"
-                onClick={() => history.push(RouteNames.ForgotPassword())}
-              >
-                Esqueceu sua senha?
+                Voltar para o login
               </Link>
             </Grid>
           </Grid>
@@ -112,4 +92,4 @@ const SignIn = () => {
   );
 };
 
-export { SignIn };
+export { ForgotPassword };

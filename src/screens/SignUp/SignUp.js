@@ -8,11 +8,10 @@ import {
   Typography,
 } from "@mui/material";
 import { useHistory } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
 import { RouteNames } from "../../App";
 import * as React from "react";
 
-const SignIn = () => {
+const SignUp = () => {
   const history = useHistory();
 
   const handleSubmit = (event) => {
@@ -43,18 +42,36 @@ const SignIn = () => {
           alignItems: "center",
         }}
       >
-        <Box mb={2}>
-          <img style={{ maxWidth: 350, width: "100%" }} src={logo} alt="Logo" />
-        </Box>
         <Typography component="h1" variant="h5">
-          Realize seu login
+          Crie sua conta
+        </Typography>
+        <Typography mt={3} align="center" component="h1" variant="subtitle1">
+          Informe os dados abaixo para cadastrar-se
         </Typography>
         <Box
           component="form"
           onSubmit={handleSubmit}
           noValidate
-          sx={{ mt: 1, mb: 1 }}
+          sx={{ mt: 2, mb: 1 }}
         >
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="name"
+            label="Nome"
+            name="name"
+            autoFocus
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="sobrenome"
+            label="Sobrenome"
+            name="sobrenome"
+            autoFocus
+          />
           <TextField
             margin="normal"
             required
@@ -75,6 +92,25 @@ const SignIn = () => {
             id="password"
             autoComplete="current-password"
           />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="confirm-password"
+            label="Confirme a senha"
+            type="password"
+            id="confirm-password"
+            autoComplete="current-password"
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="telephone"
+            label="Telefone"
+            type="tel"
+            id="telephone"
+          />
           <Button
             type="submit"
             fullWidth
@@ -82,7 +118,7 @@ const SignIn = () => {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Logar
+            Cadastrar
           </Button>
           <Grid container flexDirection="column" alignItems="center">
             <Grid item mb={1}>
@@ -90,19 +126,9 @@ const SignIn = () => {
                 href="#"
                 variant="body1"
                 underline="none"
-                onClick={() => history.push(RouteNames.SignUp())}
+                onClick={() => history.push(RouteNames.SignIn())}
               >
-                Cadastre-se
-              </Link>
-            </Grid>
-            <Grid item xs>
-              <Link
-                href="#"
-                variant="body1"
-                underline="none"
-                onClick={() => history.push(RouteNames.ForgotPassword())}
-              >
-                Esqueceu sua senha?
+                Voltar para o login
               </Link>
             </Grid>
           </Grid>
@@ -112,4 +138,4 @@ const SignIn = () => {
   );
 };
 
-export { SignIn };
+export { SignUp };
