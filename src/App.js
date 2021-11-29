@@ -1,18 +1,17 @@
-import React from "react";
+import React, {Fragment} from "react";
 import "./App.css";
-import { useAuth } from "./hooks/useAuth/useAuth";
+import { useAuth } from "./hooks/useAuth";
+import { SignIn } from "./screens/SignIn/SignIn";
 
-export const RouteNames = {
- 
-};
+export const RouteNames = {};
 
 const App = () => {
   const { signed } = useAuth();
 
   return (
-    <div>
- 
-    </div>
+    <Fragment>
+      <SignIn />
+    </Fragment>
   );
 };
 
